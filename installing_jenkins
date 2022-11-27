@@ -1,0 +1,35 @@
+### For Rehat/Centos
+##### install wget
+* sudo yum install wget -y
+
+##### Install the following redhat depencies to allow access to extra features
+* yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+* yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+##### Install JAVA
+* sudo yum install java-11-openjdk-devel -y
+
+##### Open the bash profile 
+vi .bash_profile 
+
+##### Paste the below in the bash profile
+export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+
+##### Reload the bash profile
+source ~/.bash_profile
+
+##### Install Jenkins
+Follow the link below to install jenkins: 
+https://www.jenkins.io/doc/book/installing/linux/
+
+##### Activate Jenkins
+* sudo systemctl start jenkins
+* sudo systemcty enable jenkins
+* sudo systemctl status jenkins
+
+
+
+
+
